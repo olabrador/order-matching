@@ -12,7 +12,8 @@
   },
   "eslintConfig": {
     "extends": "@redwoodjs/eslint-config",
-    "root": true
+    "root": true,
+    "semi": ["error", "always"]
   },
   "engines": {
     "node": "=20.x"
