@@ -6854,6 +6854,7 @@ __metadata:
   dependencies:
     "@redwoodjs/api": "npm:7.6.3"
     "@redwoodjs/graphql-server": "npm:7.6.3"
+    fuzzball: "npm:^2.1.2"
   languageName: unknown
   linkType: soft
 
@@ -11740,6 +11741,18 @@ __metadata:
   languageName: node
   linkType: hard
 
+"fuzzball@npm:^2.1.2":
+  version: 2.1.2
+  resolution: "fuzzball@npm:2.1.2"
+  dependencies:
+    heap: "npm:>=0.2.0"
+    setimmediate: "npm:^1.0.5"
+    string.fromcodepoint: "npm:^0.2.1"
+    string.prototype.codepointat: "npm:^0.2.0"
+  checksum: 10c0/e9599bd4cf0ffae278c6070482f118ead1af72db0298bdc48eb7c877178ce357641ca6728a8a8247a8ad6fe730edf381ffd6b9b99f74ace1c1b0c47154965742
+  languageName: node
+  linkType: hard
+
 "gensync@npm:^1.0.0-beta.2":
   version: 1.0.0-beta.2
   resolution: "gensync@npm:1.0.0-beta.2"
@@ -12314,6 +12327,13 @@ __metadata:
   version: 3.2.5
   resolution: "headers-polyfill@npm:3.2.5"
   checksum: 10c0/10202f4ebfaecd6aa31305f29664f876ac01d9174a3fb8fcc5a0df3eaf9c1767fb0d6cf6f961484f2bfd2101b6768090976f146bd88aeedd07af4e741cb2dcb7
+  languageName: node
+  linkType: hard
+
+"heap@npm:>=0.2.0":
+  version: 0.2.7
+  resolution: "heap@npm:0.2.7"
+  checksum: 10c0/341c5d51ae13dc8346c371a8a69c57c972fcb9a3233090d3dd5ba29d483d6b5b4e75492443cbfeacd46608bb30e6680f646ffb7a6205900221735587d07a79b6
   languageName: node
   linkType: hard
 
@@ -19013,6 +19033,20 @@ __metadata:
     emoji-regex: "npm:^9.2.2"
     strip-ansi: "npm:^7.0.1"
   checksum: 10c0/ab9c4264443d35b8b923cbdd513a089a60de339216d3b0ed3be3ba57d6880e1a192b70ae17225f764d7adbf5994e9bb8df253a944736c15a0240eff553c678ca
+  languageName: node
+  linkType: hard
+
+"string.fromcodepoint@npm:^0.2.1":
+  version: 0.2.1
+  resolution: "string.fromcodepoint@npm:0.2.1"
+  checksum: 10c0/2e26c7370daea0725f2cc3b0a2e4b84613c44b68130ad2afa1364b51fd48ebdfe6390086807d7b5e95d58e8a872aca46a53bbc182c549cd74c0ee9b46de32b02
+  languageName: node
+  linkType: hard
+
+"string.prototype.codepointat@npm:^0.2.0":
+  version: 0.2.1
+  resolution: "string.prototype.codepointat@npm:0.2.1"
+  checksum: 10c0/83c4d2f83b6f3f8f377e0b36628b74a9efcaf5a725e6fb6354f15f30f0399c8f4b08956df883877b2b0f50dd2e644ed7e8b1f6d45bdee2dc5b3f4248796607fa
   languageName: node
   linkType: hard
 

@@ -21,3 +21,9 @@ export type Transaction = {
 };
 
 export type MatchedRecord = Order & { transactions: Transaction[] };
+
+export type Thresholds = {
+  customerNameSimilarity: number;
+  orderIdSimilarity: number;
+  productSimilarity: number;
+};
