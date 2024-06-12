@@ -1,5 +1,6 @@
 export type Order = {
-  id: string;
+  id: number;
+  orderId: string;
   type: string;
   customerName: string;
   date: string;
@@ -8,7 +9,7 @@ export type Order = {
 };
 
 export type Transaction = {
-  id: string;
+  id: number;
   type: string;
   customerName: string;
   orderId: string;

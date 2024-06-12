@@ -10,7 +10,8 @@ describe('matchRecords', () => {
   it('should match orders and transactions with small typing errors', () => {
     const orders: Order[] = [
       {
-        id: 'abcde1',
+        id: 1,
+        orderId: 'abcde1',
         type: 'order',
         customerName: 'John Doe',
         date: '2021-01-01',
@@ -18,7 +19,8 @@ describe('matchRecords', () => {
         price: 100,
       },
       {
-        id: 'fghij2',
+        id: 2,
+        orderId: 'fghij2',
         type: 'order',
         customerName: 'Jane Doe',
         date: '2021-01-02',
@@ -29,7 +31,7 @@ describe('matchRecords', () => {
 
     const transactions: Transaction[] = [
       {
-        id: '1',
+        id: 1,
         type: 'transaction',
         customerName: 'Jhon Do', // small typing error
         orderId: 'abcde2', // small typing error
@@ -41,7 +43,7 @@ describe('matchRecords', () => {
         transactionAmount: 100,
       },
       {
-        id: '2',
+        id: 2,
         type: 'transaction',
         customerName: 'Jane Do', // small typing error
         orderId: 'fghij3', // small typing error

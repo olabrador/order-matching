@@ -7,7 +7,7 @@ export default function isLikelyMatch(
   thresholds: Thresholds,
 ): boolean {
   const customerSimilarity = getSimilarityPercentage(order.customerName, transaction.customerName);
-  const orderIdSimilarity = getSimilarityPercentage(order.id, transaction.orderId);
+  const orderIdSimilarity = getSimilarityPercentage(order.orderId, transaction.orderId);
   const productSimilarity = getSimilarityPercentage(order.product, transaction.product);
   return (
     customerSimilarity >= thresholds.customerNameSimilarity
