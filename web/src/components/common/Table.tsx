@@ -39,21 +39,21 @@ const Table = <T extends BaseTableEntity>({
       <nav className="rw-table-actions">
         <Link
           to={routes.showRoute({ id: item.id })}
-          title={'Show order ' + item.id + ' detail'}
+          title={`Show item ${item.id}`}
           className="rw-button rw-button-small"
         >
           Show
         </Link>
         <Link
           to={routes.editRoute({ id: item.id })}
-          title={'Edit order ' + item.id}
+          title={`Edit item ${item.id}`}
           className="rw-button rw-button-small rw-button-blue"
         >
           Edit
         </Link>
         <button
           type="button"
-          title={'Delete order ' + item.id}
+          title={`Delete item ${item.id}`}
           className="rw-button rw-button-small rw-button-red"
           onClick={() => onDelete(item.id)}
         >
