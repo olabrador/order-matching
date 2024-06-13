@@ -9,7 +9,8 @@
   "devDependencies": {
     "@faker-js/faker": "^8.4.1",
     "@redwoodjs/core": "7.6.3",
-    "@redwoodjs/project-config": "7.6.3"
+    "@redwoodjs/project-config": "7.6.3",
+    "prettier-plugin-tailwindcss": "0.4.1"
   },
   "eslintConfig": {
     "extends": "@redwoodjs/eslint-config",
