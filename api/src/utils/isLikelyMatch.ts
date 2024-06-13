@@ -1,4 +1,4 @@
-import { Order, Thresholds, Transaction } from "src/types";
+import { Order, Thresholds, Transaction } from "types/index";
 import getSimilarityPercentage from "./getSimilarityPercentage";
 
 export default function isLikelyMatch(

@@ -22,7 +22,7 @@ model Order {
   orderId      String
   type         String
   customerName String
-  date         DateTime
+  date         String
   product      String
   price        Float
   createdAt    DateTime @default(now())
@@ -33,11 +33,11 @@ model Transaction {
   type              String
   customerName      String
   orderId           String
-  date              DateTime
+  date              String
   product           String
   price             Float
   transactionType   String
-  transactionDate   DateTime
+  transactionDate   String
   transactionAmount Float
   createdAt         DateTime @default(now())
 }

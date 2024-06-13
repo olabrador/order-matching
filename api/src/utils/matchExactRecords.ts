@@ -1,4 +1,4 @@
-import { MatchedRecord, Order, Transaction } from "src/types";
+import { MatchedRecord, Order, Transaction } from "types/index";
 
 export default function matchExactRecords(orders: Order[], transactions: Transaction[]): MatchedRecord[] {
   const matchedRecords: MatchedRecord[] = orders.map((order) => {

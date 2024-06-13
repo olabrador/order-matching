@@ -4,7 +4,7 @@ CREATE TABLE "Order" (
     "orderId" TEXT NOT NULL,
     "type" TEXT NOT NULL,
     "customerName" TEXT NOT NULL,
-    "date" DATETIME NOT NULL,
+    "date" TEXT NOT NULL,
     "product" TEXT NOT NULL,
     "price" REAL NOT NULL,
     "createdAt" DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP
@@ -16,11 +16,11 @@ CREATE TABLE "Transaction" (
     "type" TEXT NOT NULL,
     "customerName" TEXT NOT NULL,
     "orderId" TEXT NOT NULL,
-    "date" DATETIME NOT NULL,
+    "date" TEXT NOT NULL,
     "product" TEXT NOT NULL,
     "price" REAL NOT NULL,
     "transactionType" TEXT NOT NULL,
-    "transactionDate" DATETIME NOT NULL,
+    "transactionDate" TEXT NOT NULL,
     "transactionAmount" REAL NOT NULL,
     "createdAt" DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP
 );

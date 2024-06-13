@@ -1,5 +1,5 @@
 import isLikelyMatch from './isLikelyMatch';
-import { Order, Transaction, Thresholds } from 'src/types';
+import { Order, Transaction, Thresholds } from 'types/index';
 
 describe('isLikelyMatch', () => {
   it('should return true if the order and transaction are a likely match', () => {
