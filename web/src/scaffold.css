@@ -209,13 +209,19 @@
   @apply bg-transparent;
 }
 .rw-table-actions .rw-button:hover {
-  @apply bg-gray-500 text-white;
+  @apply text-white;
 }
 .rw-table-actions .rw-button-blue {
   @apply text-blue-500;
 }
 .rw-table-actions .rw-button-blue:hover {
   @apply bg-blue-500 text-white;
+}
+.rw-table-actions .rw-button-green {
+  @apply text-green-600;
+}
+.rw-table-actions .rw-button-green:hover {
+  @apply bg-green-600 text-white;
 }
 .rw-table-actions .rw-button-red {
   @apply text-red-600;

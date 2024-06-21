@@ -1,5 +1,5 @@
 import matchExactRecords from './matchExactRecords';
-import { Order, Transaction, MatchedRecord } from 'types/index';
+import { Order, Transaction, MatchedRecord } from '../types';
 
 describe('matchExactRecords', () => {
   it('should match multiple orders and transactions based on orderId, customerName, and product', () => {

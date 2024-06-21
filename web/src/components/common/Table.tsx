@@ -1,6 +1,7 @@
 import { useCallback, useMemo } from "react";
 import { GenericParams, Link } from "@redwoodjs/router";
 import { truncate } from "src/lib/formatters";
+import { TableColumns } from "src/types";
 
 type BaseTableEntity = {
   id: number;
@@ -13,7 +14,7 @@ type TableRoutesProp = {
 
 type TableProps<T extends BaseTableEntity> = {
   items: T[];
-  columns: { key: keyof T; title: string; formatter?: (value?: string | number) => string | JSX.Element }[];
+  columns: TableColumns<T>[];
   routes?: TableRoutesProp;
   onDelete?: (id: number) => void;
   actions?: (item: T) => JSX.Element;
@@ -63,24 +64,36 @@ const Table = <T extends BaseTableEntity>({
     );
   }, [actions, routes, onDelete]);
   const columnNames = useMemo(() => columns.map((column) => column.title), [columns]);
-  const tableRows = useMemo(() => items.map((item) => {
-    const columnValues = columns.map((column) => {
-      const formatter = column.formatter ?? truncate;
-      return formatter(item[column.key]);
-    });
-    return (
-      <tr key={item.id.toString()}>
-        {columnValues.map((columnValue, index) => (
-          <td key={index}>
-            {columnValue}
+  const tableRows = useMemo(() => {
+    if (!items.length) {
+      return (
+        <tr>
+          <td className='text-center' colSpan={columnNames.length}>
+            <div>Empty</div>
           </td>
-        ))}
-        <td>
-          {tableActions(item)}
-        </td>
-      </tr>
-    );
-  }), [items, columns, tableActions]);
+        </tr>
+      );
+    }
+
+    return items.map((item) => {
+      const columnValues = columns.map((column) => {
+        const formatter = column.formatter ?? truncate;
+        return formatter(item[column.key]);
+      });
+      return (
+        <tr key={item.id.toString()}>
+          {columnValues.map((columnValue, index) => (
+            <td key={index}>
+              {columnValue}
+            </td>
+          ))}
+          <td>
+            {tableActions(item)}
+          </td>
+        </tr>
+      );
+    });
+  }, [items, columns, tableActions]);
   return (
     <div className="rw-segment rw-table-wrapper-responsive">
       <table className="rw-table">

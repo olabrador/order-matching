@@ -1,4 +1,4 @@
-import { MatchedRecord, Order, Thresholds, Transaction } from "types/index";
+import { MatchedRecord, Order, Thresholds, Transaction } from '../types';
 import matchRecords from "./matchRecords";
 
 describe('matchRecords', () => {

@@ -21,7 +21,19 @@ export type Transaction = {
   transactionAmount: number;
 };
 
-export type MatchedRecord = Order & { transactions: Transaction[] };
+export type MatchedRecord = Order & {
+  transactions: (Transaction & {
+    customerNameSimilarity: number;
+    orderIdSimilarity: number;
+    productSimilarity: number;
+  })[];
+};
+
+export enum MatchStatus {
+  rejected = 'rejected',
+  unverified = 'unverified',
+  verified = 'verified',
+};
 
 export type Thresholds = {
   customerNameSimilarity: number;

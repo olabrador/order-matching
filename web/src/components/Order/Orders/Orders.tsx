@@ -10,8 +10,8 @@ import type { TypedDocumentNode } from '@redwoodjs/web';
 import { toast } from '@redwoodjs/web/toast';
 
 import { QUERY } from 'src/components/Order/OrdersCell';
-import { timeTag, truncate } from 'src/lib/formatters';
 import Table from 'src/components/common/Table';
+import { useCallback } from 'react';
 
 const DELETE_ORDER_MUTATION: TypedDocumentNode<
   DeleteOrderMutation,
@@ -32,9 +32,6 @@ const OrdersList = ({ orders }: FindOrders) => {
     onError: (error) => {
       toast.error(error.message);
     },
-    // This refetches the query on the list page. Read more about other ways to
-    // update the cache over here:
-    // https://www.apollographql.com/docs/react/data/mutations/#making-all-other-cache-updates
     refetchQueries: [{ query: QUERY }],
     awaitRefetchQueries: true,
   });
@@ -44,6 +41,35 @@ const OrdersList = ({ orders }: FindOrders) => {
       deleteOrder({ variables: { id } });
     }
   };
+
+  const actions = useCallback((order: FindOrders['orders'][number]) => {
+    return (
+      <nav className="rw-table-actions">
+        <Link
+          to={routes.orderMatches({ orderId: order.id })}
+          title={`Manage transactions for order ${order.id}`}
+          className="rw-button rw-button-small rw-button-green"
+        >
+          Transactions
+        </Link>
+        <Link
+          to={routes.editOrder({ id: order.id })}
+          title={`Edit order ${order.id}`}
+          className="rw-button rw-button-small rw-button-blue"
+        >
+          Edit
+        </Link>
+        <button
+          type="button"
+          title={`Delete order ${order.id}`}
+          className="rw-button rw-button-small rw-button-red"
+          onClick={() => onDeleteClick(order.id)}
+        >
+          Delete
+        </button>
+      </nav>
+    );
+  }, []);
 
   return (
     <Table
@@ -56,11 +82,8 @@ const OrdersList = ({ orders }: FindOrders) => {
         { key: 'product', title: 'Product' },
         { key: 'price', title: 'Price' },
       ]}
-      routes={{
-        showRoute: routes.order,
-        editRoute: routes.editOrder,
-      }}
       onDelete={onDeleteClick}
+      actions={actions}
     />
   );
 };

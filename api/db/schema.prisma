@@ -26,6 +26,8 @@ model Order {
   product      String
   price        Float
   createdAt    DateTime @default(now())
+
+  matches Match[]
 }
 
 model Transaction {
@@ -40,4 +42,27 @@ model Transaction {
   transactionDate   String
   transactionAmount Float
   createdAt         DateTime @default(now())
+
+  matches Match[]
+}
+
+model Match {
+  id                     Int      @id @default(autoincrement())
+  orderId                Int
+  transactionId          Int
+  status                 String
+  customerNameSimilarity Float?
+  orderIdSimilarity      Float?
+  productSimilarity      Float?
+  feedback               String?
+  createdAt              DateTime @default(now())
+
+  order       Order       @relation(fields: [orderId], references: [id], onDelete: Cascade)
+  transaction Transaction @relation(fields: [transactionId], references: [id], onDelete: Cascade)
+}
+
+model Threshold {
+  id    Int    @id @default(autoincrement())
+  name  String
+  value Float
 }

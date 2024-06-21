@@ -11,8 +11,8 @@ export const schema = gql`
   }
 
   type Query {
-    orders: [Order!]! @requireAuth
-    order(id: Int!): Order @requireAuth
+    orders: [Order!]! @skipAuth
+    order(id: Int!): Order @skipAuth
   }
 
   input CreateOrderInput {
@@ -34,8 +34,8 @@ export const schema = gql`
   }
 
   type Mutation {
-    createOrder(input: CreateOrderInput!): Order! @requireAuth
-    updateOrder(id: Int!, input: UpdateOrderInput!): Order! @requireAuth
-    deleteOrder(id: Int!): Order! @requireAuth
+    createOrder(input: CreateOrderInput!): Order! @skipAuth
+    updateOrder(id: Int!, input: UpdateOrderInput!): Order! @skipAuth
+    deleteOrder(id: Int!): Order! @skipAuth
   }
 `;

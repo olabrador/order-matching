@@ -28,6 +28,20 @@ export default async () => {
       | 'transactionDate'
       | 'transactionAmount'
     >[] = [];
+    const thresholds: { name: string; value: number }[] = [
+      {
+        name: 'customerNameSimilarity',
+        value: 75,
+      },
+      {
+        name: 'orderIdSimilarity',
+        value: 70,
+      },
+      {
+        name: 'productSimilarity',
+        value: 70,
+      },
+    ];
     // Generate 500 orders
     for (let i = 0; i < 500; i++) {
       const order = {
@@ -93,7 +107,18 @@ export default async () => {
         })
       );
     } else {
-      console.log('Orders already seeded');
+      console.log('Transactions already seeded');
+    }
+
+    if ((await db.threshold.count() === 0)) {
+      await Promise.all(
+        thresholds.map(async (data) => {
+          const record = await db.threshold.create({ data });
+          console.log(record);
+        })
+      );
+    } else {
+      console.log('Thresholds already seeded');
     }
   } catch (error) {
     console.warn('Please define your seed data.');
